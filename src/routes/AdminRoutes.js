@@ -10,9 +10,9 @@ export default function AdminRoutes() {
       <>
         <Routes>
             <Route element={<MasterLayout />} >
-                <Route path="dashboard" element={ <Dashboard /> } />
-                <Route path="profile" element={ <Profile /> } />
-                <Route path="" element={<Navigate to="/admin/dashboard" /> } /> 
+              <Route path="dashboard" element={ <Dashboard /> } />
+              <Route path="profile" element={ <Profile /> } />
+              <Route path="" element={<Navigate to="/admin/dashboard" /> } /> 
             </Route>
         </Routes>
       </>  
