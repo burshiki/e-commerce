@@ -1,10 +1,13 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import Footer from './Footer'
 
 import '../../assets/admin/css/styles.css'
 import '../../assets/admin/js/scripts.js'
+
 
 const MasterLayout = () => {
   return (
@@ -17,6 +20,7 @@ const MasterLayout = () => {
             </div>
             <div id="layoutSidenav_content">
                 <main>
+                  <Outlet />
                 </main>
                 <Footer />
             </div>
