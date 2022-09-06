@@ -1,5 +1,7 @@
 import React from 'react'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+
+import Page404 from './components/admin/Page404'
 
 import AdminRoutes from './routes/AdminRoutes'
 
@@ -11,11 +13,7 @@ function App() {
     
     <Routes>
       <Route path="/admin/*" element={ <AdminRoutes />} />
-        {/* <Route path="/admin" element={ <MasterLayout /> } >
-          <Route path="/admin/dashboard" element={ <Dashboard /> } />
-          <Route path="/admin/profile" element={ <Profile /> } />
-          <Route path="/admin" element={<Navigate to="/admin/dashboard" /> } />
-        </Route> */}
+      <Route path="*" element={ <Page404 /> } />
     </Routes>
      
   );
