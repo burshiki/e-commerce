@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../../layouts/frontend/Footer'
 import Navbar from '../../layouts/frontend/Navbar'
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <>
         <Navbar />
         <div>Home</div>
+        <Footer />
     </>
   )
 }

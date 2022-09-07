@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../../../layouts/frontend/Footer'
 import Navbar from '../../../layouts/frontend/Navbar'
 
 const Register = () => {
@@ -7,10 +8,10 @@ const Register = () => {
         <Navbar />
         <div className='container py-5'>
             <div className='row justify-content-center'>
-                <div className='col-md-6'>
+                <div className='col-xxl-4 col-xl-4 col-lg-6 col-md-8'>
                     <div className='card'>
-                        <div className='card-header'>
-                            <h4>Register</h4>
+                        <div className='card-header text-center'>
+                            <h4>Create Account</h4>
                         </div>
                         <div className='card-body'>
                             <form>
@@ -39,6 +40,7 @@ const Register = () => {
                 </div>
             </div>
         </div>
+        <Footer />
     </>
   )
 }
