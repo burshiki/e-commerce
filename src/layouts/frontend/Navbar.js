@@ -1,7 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div className="container">
@@ -10,20 +11,23 @@ const Navbar = () => {
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+
                     <li className="nav-item">
-                        <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                        <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="#">Collections</Link>
+                        <NavLink className="nav-link" to="/collections">Collections</NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/login">Login</Link>
+                        <NavLink className="nav-link" to="/signin">Sign In</NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/register">Register</Link>
+                        <NavLink className="nav-link" to="/register">Register</NavLink>
                     </li>
                 </ul>
+                       
             </div>
         </div>
     </nav>
