@@ -20,7 +20,7 @@ const Register = () => {
         setRegister({...registerInput, [e.target.name]: e.target.value });
     }
     
-    const submitRegister = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         const data = {
@@ -60,7 +60,7 @@ const Register = () => {
                             <h4>Create Account</h4>
                         </div>
                         <div className='card-body'>
-                            <form onSubmit={submitRegister}>
+                            <form onSubmit={handleSubmit}>
                                 <div className='form-group mb-3'>
                                     <label>Full Name</label>
                                     <input type='text' name='name' onChange={handleInput} value={registerInput.name} className='form-control'  />
