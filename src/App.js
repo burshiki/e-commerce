@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 import Page404 from './components/admin/Page404'
 import Login from './components/frontend/auth/Login';
@@ -26,8 +26,10 @@ function App() {
   return (
     
     <Routes>
-      <Route path="/login" element={ <Login /> } />
-      <Route path="/register" element={ <Register /> } />
+      {/* <Route path="/login" element={ <Login /> } />
+      <Route path="/register" element={ <Register /> } /> */}
+      <Route path="/login" element={ localStorage.getItem('auth_token') ? <Navigate to='/' /> : <Login /> } />
+      <Route path="/register" element={ localStorage.getItem('auth_token') ? <Navigate to='/' /> : <Register /> } />
       <Route path="/" element={ <Home /> } />
       <Route path="/collections" element={ <Collections /> } />
       <Route path="/admin/*" element={ <AdminRoutes />} />
