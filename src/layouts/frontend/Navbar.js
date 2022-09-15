@@ -1,7 +1,49 @@
+import axios from 'axios';
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import swal from 'sweetalert';
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        axios.post(`/api/logout`).then(res => {
+
+            if (res.data.status === 200) {
+                localStorage.removeItem('auth_token');
+                localStorage.removeItem('auth_name');
+
+                swal("Success",res.data.message,"success");
+                navigate('/');
+            }
+
+        });
+    }
+
+
+    var AuthButtons = '';
+
+    if (!localStorage.getItem('auth_token')) {
+        AuthButtons = (
+           <ul className='navbar-nav'>
+                <li className="nav-item">
+                    <NavLink className="nav-link" to="/login">Log In</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink className="nav-link" to="/register">Register</NavLink>
+                </li>
+           </ul>
+        )
+    }
+    else {
+        AuthButtons = (
+            <li className="nav-item">
+                <button type="button" onClick={handleSubmit} className="nav-link btn btn-sm">Logout</button>
+            </li>
+        )
+    }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -19,13 +61,8 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/collections">Collections</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-link" to="/login">Log In</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-link" to="/register">Register</NavLink>
-                    </li>
+                    </li>          
+                    {AuthButtons}
                 </ul>
                        
             </div>
